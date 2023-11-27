@@ -1,0 +1,2 @@
+#!/bin/bash
+echo "#!/usr/bin/python3" >> main_2.py && echo $PYCODE >> main_2.py && python3 main_2.py
