@@ -14,5 +14,3 @@ def fizzbuzz():
             print(f"{number}", end=" ")
             continue
     print("$")
-
-fizzbuzz()
