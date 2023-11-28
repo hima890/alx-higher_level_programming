@@ -8,7 +8,7 @@ string_3 = (
     f"Last digit of {number} is "
     f"-{lastDigit} and is less than 6 and not 0"
     )
-string_4 = f(
+string_4 = (
     f"Last digit of {number} is "
     f"{lastDigit} and is less than 6 and not 0"
     )
