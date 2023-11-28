@@ -1,5 +1,6 @@
 #!/usr/bin/python3
+
 for char_code in range(ord('a'), ord('z') + 1):
     if chr(char_code) not in 'qe':
-        print("{}".format(chr(char_code)), end="")
-print()  # Print a newline after the loop
+        print("{}".format(chr(char_code)),
+              end="" if char_code < ord('z') else "\n")
