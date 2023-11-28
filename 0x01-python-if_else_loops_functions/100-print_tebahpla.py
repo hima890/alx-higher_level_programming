@@ -1,6 +1,11 @@
 #!/usr/bin/python3
-for character in range(122, 96, -1):
-    if character % 2 == 0:
-        print(f"{chr(character)}", end="")
-    else:
-        print(f"{chr(character - 32)}", end="")
+i = 122
+while i >= 97:
+    flag = 0
+    if i % 2 != 0:
+        i = i - 32
+        flag = 1
+    print("{:s}".format(chr(i)), end="")
+    if flag == 1:
+        i = i + 32
+    i = i - 1
