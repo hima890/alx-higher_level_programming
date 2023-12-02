@@ -2,25 +2,32 @@
 if __name__ == "__main__":
     import sys
     from calculator_1 import add, sub, mul, div
-    argLen = len(sys.argv)
-    arguments = sys.argv
-    if argLen < 4:
-        print("Usage: .{} <a> <operator> <b>".format(arguments[0]))
+
+    # Check the number of arguments
+    if len(sys.argv) != 4:
+        print("Usage: ./100-my_calculator.py <a> <operator> <b>")
         sys.exit(1)
-    if argLen == 4:
-        operators = ['+', '-', '*', '/']
-        operator = arguments[2]
-        if operator not in operators:
-            print("Unknown operator. Available operators: +, -, * and /")
-            sys.exit(1)
-        else:
-            a = int(arguments[1])
-            b = int(arguments[3])
-            if operator == '+':
-                print("{} + {} = {}".format(a, b, add(a, b)))
-            elif operator == '-':
-                print("{} - {} = {}".format(a, b, sub(a, b)))
-            elif operator == '*':
-                print("{} * {} = {}".format(a, b, mul(a, b)))
-            elif operator == '/':
-                print("{} / {} = {}".format(a, b, div(a, b)))
+
+    # Extract arguments
+    a, operator, b = map(str, sys.argv[1:4])
+
+    # Validate and perform operation
+    if operator not in ('+', '-', '*', '/'):
+        print("Unknown operator. Available operators: +, -, * and /")
+        sys.exit(1)
+
+    # Convert arguments to integers
+    a, b = map(int, (a, b))
+
+    # Perform the operation
+    if operator == '+':
+        result = add(a, b)
+    elif operator == '-':
+        result = sub(a, b)
+    elif operator == '*':
+        result = mul(a, b)
+    elif operator == '/':
+        result = div(a, b)
+
+    # Print the result
+    print("{} {} {} = {}".format(a, operator, b, result))
