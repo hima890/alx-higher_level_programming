@@ -1,89 +1,73 @@
-#include <stddef.h>
 #include "lists.h"
+#include <stdio.h>
+
+listint_t *reverse_listint(listint_t **head);
+int is_palindrome(listint_t **head);
 
 /**
-* is_palindrome - checks if a singly linked list is a palindrome
-* @head: pointer to the head of the list
-* Return: 0 if not a palindrome, 1 if a palindrome
-*/
-int is_palindrome(listint_t **head)
+ * reverse_listint - Reverses a singly-linked listint_t list.
+ * @head: A pointer to the starting node of the list to reverse.
+ *
+ * Return: A pointer to the head of the reversed list.
+ */
+listint_t *reverse_listint(listint_t **head)
 {
-	listint_t *slow, *fast, *prev_slow, *mid, *second_half;
-	int is_palindrome = 1;
+	listint_t *node = *head, *next, *prev = NULL;
 
-	if (!(*head) || !((*head)->next))
-		return (1);
-	slow = *head;
-	fast = *head;
-	prev_slow = *head;
-	mid = NULL;
-	while (fast && fast->next)
+	while (node)
 	{
-		fast = fast->next->next;
-		prev_slow = slow;
-		slow = slow->next;
-	}
-	if (fast)
-	{
-		mid = slow;
-		slow = slow->next;
-	}
-	second_half = slow;
-	prev_slow->next = NULL;
-	reverse_list(&second_half);
-	is_palindrome = compare_lists(*head, second_half);
-	reverse_list(&second_half);
-	if (mid)
-	{
-		prev_slow->next = mid;
-		mid->next = second_half;
-	}
-	else
-		prev_slow->next = second_half;
-
-	return (is_palindrome);
-}
-
-/**
-* reverse_list - reverses a linked list
-* @head: pointer to the head of the list
-*/
-void reverse_list(listint_t **head)
-{
-	listint_t *prev = NULL, *current = *head, *next;
-
-	while (current)
-	{
-		next = current->next;
-		current->next = prev;
-		prev = current;
-		current = next;
+		next = node->next;
+		node->next = prev;
+		prev = node;
+		node = next;
 	}
 
 	*head = prev;
+	return (*head);
 }
 
 /**
-* compare_lists - compares two linked lists
-* @list1: pointer to the first list
-* @list2: pointer to the second list
-* Return: 1 if lists are identical, 0 otherwise
-*/
-int compare_lists(listint_t *list1, listint_t *list2)
+ * is_palindrome - Checks if a singly linked list is a palindrome.
+ * @head: A pointer to the head of the linked list.
+ *
+ * Return: If the linked list is not a palindrome - 0.
+ *         If the linked list is a palindrome - 1.
+ */
+int is_palindrome(listint_t **head)
 {
-	while (list1 && list2)
-	{
-		if (list1->n == list2->n)
-		{
-			list1 = list1->next;
-			list2 = list2->next;
-		}
-		else
-			return (0);
-	}
+	listint_t *tmp, *rev, *mid;
+	size_t size = 0, i;
 
-	if (!list1 && !list2)
+	if (*head == NULL || (*head)->next == NULL)
 		return (1);
 
-	return (0);
+	tmp = *head;
+	while (tmp)
+	{
+		size++;
+		tmp = tmp->next;
+	}
+
+	tmp = *head;
+	for (i = 0; i < (size / 2) - 1; i++)
+		tmp = tmp->next;
+
+	if ((size % 2) == 0 && tmp->n != tmp->next->n)
+		return (0);
+
+	tmp = tmp->next->next;
+	rev = reverse_listint(&tmp);
+	mid = rev;
+
+	tmp = *head;
+	while (rev)
+	{
+		if (tmp->n != rev->n)
+			return (0);
+		tmp = tmp->next;
+		rev = rev->next;
+	}
+	reverse_listint(&mid);
+
+	return (1);
 }
