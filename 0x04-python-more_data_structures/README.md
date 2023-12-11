@@ -17,6 +17,14 @@ Tasks
 11. Multiply by Using Map
 12. Roman to Integer
 Tasks
+13. Weighted Average
+14. Squared by Using Map
+15. Delete by Value
+16. CPython #1: PyBytesObject
+Tasks
+13. Weighted Average
+
+
 0. Square Matrix Simple
 This script defines a function square_matrix_simple(matrix) that takes a 2-dimensional array (matrix) as input and returns a new matrix with each element being the square of the corresponding element in the input matrix. The initial matrix is not modified.
 
@@ -56,3 +64,11 @@ The script contains a function multiply_list_map(my_list=[], number=0) that retu
 12. Roman to Integer
 This script defines a function roman_to_int(roman_string) that converts a Roman numeral to an integer. The function can handle Roman numerals within the range of 1 to 3999.
 
+14. Squared by Using Map
+This script defines a function square_matrix_map(matrix) that computes the square value of all integers in a matrix using the map function. The resulting matrix has the same size as the input matrix, and the initial matrix is not modified.
+
+15. Delete by Value
+The script contains a function complex_delete(a_dictionary, value) that deletes all keys with a specific value in a dictionary.
+
+16. CPython #1: PyBytesObject
+This C module includes two functions: print_python_list(PyObject *p) and print_python_bytes(PyObject *p). These functions provide basic information about Python lists and Python bytes objects. The information includes the size, allocated space, and elements for lists, and the size and some bytes for bytes objects. If the provided object is not a valid PyBytesObject, an error message is printed.
