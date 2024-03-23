@@ -19,4 +19,4 @@ class Square:
         - size (str): Value for size.
         """
 
-        self.size = size
+        self.__size = size
