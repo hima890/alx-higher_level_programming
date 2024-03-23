@@ -8,13 +8,13 @@ class Square:
     - width: An integer attribute
     """
 
-    def __init__(self, hight, widht):
+    def __init__(self, hight = 10, widht = 10):
         """
         Constructor for Square.
 
         Parameters:
-        - hight (int): Value for attribute1.
-        - widht (int): Value for attribute2.
+        - hight (int): Value for attribute1 (default is 10).
+        - widht (int): Value for attribute2 (default is 10).
         """
         self.hight = hight
         self.width = widht
