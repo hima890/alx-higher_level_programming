@@ -6,7 +6,17 @@ class Square:
     """
     This a simple class to demonstrate documentation of classes in python
     incilding attributes and functions and more using the beast stander.
-    """
-    __size = 3
-    pass
 
+    Attributes:
+        - size: Un Intger attribute
+    """
+
+    def __ini__(self, size):
+        """
+        Constructor for Square.
+
+        Parameters:
+        - size (str): Value for size.
+        """
+
+        self.size = size
