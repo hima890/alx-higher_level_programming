@@ -11,7 +11,7 @@ class Square:
         - size: Un Intger attribute
     """
 
-    def __ini__(self, size):
+    def __init__(self, size):
         """
         Constructor for Square.
 
