@@ -1,0 +1,37 @@
+Test cases for add_integer function:
+
+>>> # Importing the add_integer function from the module
+>>> try:
+...     add_integer = __import__('0-add_integer').add_integer
+... except ImportError:
+...     print("Error: Could not import add_integer function.")
+>>> 
+>>> # Testing the function with input (0, 0)
+>>> add_integer(0, 0)
+0
+>>> add_integer(2, 3)
+5
+>>> add_integer(2.5, 3.5)
+5
+>>> add_integer(2, 3.5)
+5
+>>> add_integer(2.5, 4)
+6
+>>> add_integer()
+Traceback (most recent call last):
+...
+TypeError: add_integer() missing 1 required positional argument: 'a'
+>>> add_integer(42, 'hima')
+Traceback (most recent call last):
+TypeError: b must be an integer
+>>> add_integer('hima', 42)
+Traceback (most recent call last):
+TypeError: a must be an integer
+>>> add_integer(float('inf'), 0)
+Traceback (most recent call last):
+...
+OverflowError: cannot convert float infinity to integer
+>>> add_integer(0, float('nan'))
+Traceback (most recent call last):
+...
+ValueError: cannot convert float NaN to integer

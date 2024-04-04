@@ -5,6 +5,7 @@ Defines a add_integer function and use the test case for it
 
 """
 
+
 def add_integer(a, b=98):
     """
     This is a semple adding function to add two integer value.
