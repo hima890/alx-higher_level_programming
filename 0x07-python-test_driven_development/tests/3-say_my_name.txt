@@ -1,0 +1,21 @@
+using "3-say_my_name"
+---------------------
+>>> # Importing the say_my_name function from the module
+>>> try:
+...     say_my_name = __import__('3-say_my_name').say_my_name
+... except ImportError:
+...     print("Error: Could not import say_my_name function.")
+>>> # Normal input
+>>> say_my_name("Ibrahim", "Hanafi")
+My name is Ibrahim Hanafi
+>>> say_my_name("Ibrahim")
+My name is Ibrahim 
+>>> # Non string input
+>>> say_my_name(848, "Hima")
+Traceback (most recent call last):
+...
+TypeError: first_name must be a string
+>>> say_my_name("Hima", 7747)
+Traceback (most recent call last):
+...
+TypeError: last_name must be a string
