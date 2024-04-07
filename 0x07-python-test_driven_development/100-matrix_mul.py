@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-A function that print text with newlines.
+A function that multy two matrix.
 
 
 """
