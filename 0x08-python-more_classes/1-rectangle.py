@@ -1,8 +1,6 @@
 #!/usr/bin/python3
 """
-Class Rectangle
-
-
+"1-rectangle, built for Holberton Python project 0x08.
 """
 
 
@@ -55,7 +53,7 @@ class Rectangle:
             TypeError: If the value is not an integer.
             ValueError: If the value is less than 0.
         """
-        if not isinstance(value, int):
+        if not type(value) == int:
             raise TypeError("width must be an integer")
         if value < 0:
             raise ValueError("width must be >= 0")
@@ -83,7 +81,7 @@ class Rectangle:
             TypeError: If the value is not an integer.
             ValueError: If the value is less than 0.
         """
-        if not isinstance(value, int):
+        if not type(value) == int:
             raise TypeError("height must be an integer")
         if value < 0:
             raise ValueError("height must be >= 0")
