@@ -12,6 +12,7 @@ class MyList(list):
     Attributes:
     element(int) : Element to be add to the list
     """
+    pass
 
     def print_sorted(self):
         """
@@ -30,5 +31,4 @@ class MyList(list):
                 raise TypeError("List elemnts must be intgers")
             break
 
-        sorted_list = sorted(self)
-        print(sorted_list)
+        print(list(sorted(self)))
