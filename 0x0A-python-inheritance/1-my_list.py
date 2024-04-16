@@ -23,12 +23,12 @@ class MyList(list):
 
         Return: A sorted (ascending sort) list
         """
-        if not self:
-            raise ValueError("List is empty")
+        # if not self:
+        #     raise ValueError("List is empty")
 
-        for ele in self:
-            if type(ele) != int:
-                raise TypeError("List elemnts must be intgers")
-            break
+        # for ele in self:
+        #     if type(ele) != int:
+        #         raise TypeError("List elemnts must be intgers")
+        #     break
 
         print(list(sorted(self)))
