@@ -1,1 +1,34 @@
 #!/usr/bin/python3
+"""
+Class MyList that inherits from list
+"""
+
+
+class MyList(list):
+    """
+    Class MyList prints the list, but sorted
+    (ascending sort)
+
+    Attributes:
+    element(int) : Element to be add to the list
+    """
+
+    def print_sorted(self):
+        """
+        Prints the list, but sorted (ascending sort)
+
+        Args:
+        element(int) : Element to be add to the list
+
+        Return: A sorted (ascending sort) list
+        """
+        if not self:
+            raise ValueError("List is empty")
+
+        for ele in self:
+            if type(ele) != int:
+                raise TypeError("List elemnts must be intgers")
+            break
+
+        sorted_list = sorted(self)
+        print(sorted_list)

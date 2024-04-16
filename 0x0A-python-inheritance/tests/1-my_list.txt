@@ -1,0 +1,22 @@
+using "1-my_list.py"
+---------------------
+
+>>> # Importing the say_my_name function from the module
+>>> try:
+...     MyList_1 = __import__('1-my_list').MyList
+... except ImportError:
+...     print("Error: Could not import MyList class.")
+>>> # Test case 1: Test printing a sorted list with integers
+>>> lst = MyList_1([3, 1, 2])
+>>> lst.print_sorted()
+[1, 2, 3]
+
+>>> # Test case 2: Test printing a sorted list with negative integers
+>>> lst = MyList_1([-3, -1, -2])
+>>> lst.print_sorted()
+[-3, -2, -1]
+
+>>> # Test case 3: Test printing a sorted list with mixed integers
+>>> lst = MyList_1([3, -1, 0, 2])
+>>> lst.print_sorted()
+[-1, 0, 2, 3]
