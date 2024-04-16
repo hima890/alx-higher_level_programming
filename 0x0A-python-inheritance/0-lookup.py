@@ -3,6 +3,7 @@
 Get the object attributes and methods
 """
 
+
 def lookup(obj):
     """
     Function to get all object attributes and methods,
