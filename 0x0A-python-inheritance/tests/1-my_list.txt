@@ -8,7 +8,7 @@ using "1-my_list.py"
 ...     print("Error: Could not import MyList class.")
 >>> # Test case 1: Test printing a sorted list with integers
 >>> lst = MyList_1([3, 1, 2])
->>> st.print_sorted()
+>>> lst.print_sorted()
 [1, 2, 3]
 
 >>> # Test case 2: Test printing a sorted list with negative integers
