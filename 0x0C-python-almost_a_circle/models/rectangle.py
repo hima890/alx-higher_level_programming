@@ -77,7 +77,11 @@ class Rectangle(Base):
         elif kwargs:
             for key, value in kwargs.items():
                 setattr(self, key, value)
-            
+    def to_dictionary(self):
+        return {'id': self.id, 'width': self.width,
+                'height': self.height, 'x': self.x,
+                'y': self.y}
+    
     def __str__(self):
         return "[Rectangle] ({}) {}/{} - {}/{}".format(
             self.id, self.__x, self.__y,
