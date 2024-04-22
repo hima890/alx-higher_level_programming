@@ -2,6 +2,7 @@
 
 import json
 
+
 class Base:
     __nb_objects = 0
     def __init__(self, id=None):
@@ -42,3 +43,18 @@ class Base:
 
         dummy_instance.update(**dictionary)  # Update the dummy instance with the provided dictionary
         return dummy_instance
+    
+    @classmethod
+    def load_from_file(cls):
+        filename = cls.__name__ + ".json"
+        try:
+            with open(filename, 'r') as file:
+                data = file.read()
+                if data:
+                    json_data = cls.from_json_string(data)
+                    instances = [cls.create(**item) for item in json_data]
+                    return instances
+                else:
+                    return []
+        except FileNotFoundError:
+            return []
