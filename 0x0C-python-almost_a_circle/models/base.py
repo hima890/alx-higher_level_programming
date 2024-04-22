@@ -25,3 +25,20 @@ class Base:
         with open(filename, "w") as file:
             json_str = cls.to_json_string([obj.to_dictionary() for obj in list_objs])
             file.write(json_str)
+
+    def from_json_string(json_string):
+        if not json_string:
+            return []
+        return json.loads(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+        if cls.__name__ == 'Rectangle':
+            dummy_instance = cls(1, 1)  # Create a dummy Rectangle instance
+        elif cls.__name__ == 'Square':
+            dummy_instance = cls(1)  # Create a dummy Square instance
+        else:
+            raise ValueError("Unsupported class type")
+
+        dummy_instance.update(**dictionary)  # Update the dummy instance with the provided dictionary
+        return dummy_instance
