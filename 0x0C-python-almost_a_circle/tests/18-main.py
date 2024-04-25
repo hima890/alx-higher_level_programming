@@ -1,41 +1,89 @@
 #!/usr/bin/python3
-""" 18-main """
-from models.rectangle import Rectangle
-from models.square import Square
+"""
+    Unittest for to_dictionary square
+"""
 
-if __name__ == "__main__":
+import unittest
+from models import square
+Square = square.Square
 
-    r1 = Rectangle(10, 7, 2, 8)
-    r2 = Rectangle(2, 4)
-    list_rectangles_input = [r1, r2]
 
-    Rectangle.save_to_file(list_rectangles_input)
+class TestSquare(unittest.TestCase):
+    """
+        tests for square to dictionary
+    """
+    def test_to_dict_square_ok(self):
+        """
+            tests for dictionary for a normal square
+        """
+        s1 = Square(10, 2, 1)
+        self.assertEqual(s1.to_dictionary(), {
+                         'id': 1, 'x': 2, 'size': 10, 'y': 1})
+        s1 = Square(10, 2, 1, 8)
+        self.assertEqual(s1.to_dictionary(), {
+                         'id': 8, 'x': 2, 'size': 10, 'y': 1})
+        s5 = Square(3, 12)
+        self.assertEqual(s5.to_dictionary(), {
+                         'id': 2, 'x': 12, 'size': 3, 'y': 0})
+        s6 = Square(3)
+        self.assertEqual(s6.to_dictionary(), {
+                         'id': 3, 'size': 3, 'x': 0, 'y': 0})
 
-    list_rectangles_output = Rectangle.load_from_file()
+    def test_to_dict_square_value_error(self):
+        """
+            tests for value error of the square
+        """
+        with self.assertRaises(ValueError):
+            s2 = Square(-2, 3, 12)
+            s2.to_dictionary()
+        with self.assertRaises(ValueError):
+            s3 = Square(2, -3, 12)
+            s3.to_dictionary()
+        with self.assertRaises(ValueError):
+            s4 = Square(2, 3, -12)
+            s4.to_dictionary()
 
-    for rect in list_rectangles_input:
-        print("[{}] {}".format(id(rect), rect))
+    def test_to_dict_square_type_error(self):
+        """
+            test for type error of the square
+        """
+        with self.assertRaises(TypeError):
+            s7 = Square()
+            s7.to_dictionary()
+        with self.assertRaises(TypeError):
+            s8 = Square(2.3, 3, 12)
+            s8.to_dictionary()
+        with self.assertRaises(TypeError):
+            s9 = Square(2, 3.2, 12)
+            s9.to_dictionary()
+        with self.assertRaises(TypeError):
+            s10 = Square(2, (3, 2, 3), 12)
+            s10.to_dictionary()
+        with self.assertRaises(TypeError):
+            s11 = Square((2, 8, 9), 3, 12)
+            s11.to_dictionary()
+        with self.assertRaises(TypeError):
+            s12 = Square(2, 3, (2, 8, 7))
+            s12.to_dictionary()
+        with self.assertRaises(TypeError):
+            s13 = Square((), 3, 12)
+            s13.to_dictionary()
+        with self.assertRaises(TypeError):
+            s14 = Square(2, (), 12)
+            s14.to_dictionary()
+        with self.assertRaises(TypeError):
+            s15 = Square(2, 3, ())
+            s15.to_dictionary()
+        with self.assertRaises(TypeError):
+            s16 = Square(float('inf'), 3, 12)
+            s16.to_dictionary()
+        with self.assertRaises(TypeError):
+            s17 = Square(2, float('inf'), 12)
+            s17.to_dictionary()
+        with self.assertRaises(TypeError):
+            s18 = Square(2, 12, float('inf'))
+            s18.to_dictionary()
 
-    print("---")
 
-    for rect in list_rectangles_output:
-        print("[{}] {}".format(id(rect), rect))
-
-    print("---")
-    print("---")
-
-    s1 = Square(5)
-    s2 = Square(7, 9, 1)
-    list_squares_input = [s1, s2]
-
-    Square.save_to_file(list_squares_input)
-
-    list_squares_output = Square.load_from_file()
-
-    for square in list_squares_input:
-        print("[{}] {}".format(id(square), square))
-
-    print("---")
-
-    for square in list_squares_output:
-        print("[{}] {}".format(id(square), square))
+if __name__ == '__main__':
+    unittest.main()

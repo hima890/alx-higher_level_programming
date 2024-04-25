@@ -1,24 +1,46 @@
 #!/usr/bin/python3
-""" 9-main """
-from models.square import Square
+"""
+    Unittest for Base
+"""
 
-if __name__ == "__main__":
+import unittest
+import pycodestyle
+from models import base
+from models import rectangle
+from models import square
+Base = base.Base
+Rectangle = rectangle.Rectangle
+Square = square.Square
 
-    s1 = Square(5)
-    print(s1)
-    print(s1.area())
-    s1.display()
 
-    print("---")
+class TestBase(unittest.TestCase):
+    """
+        test for comments for base rectangle and square files
+    """
+    def test_conformance_base(self):
+        """
+            Test that we conform to PEP-8 for Base
+        """
+        style = pycodestyle.StyleGuide(quiet=True)
+        result = style.check_files(['models/base.py'])
+        self.assertEqual(result.total_errors, 0)
 
-    s2 = Square(2, 2)
-    print(s2)
-    print(s2.area())
-    s2.display()
+    def test_conformance_rectangle(self):
+        """
+            Test that we conform to PEP-8 for Rectangle
+        """
+        style = pycodestyle.StyleGuide(quiet=True)
+        result = style.check_files(['models/rectangle.py'])
+        self.assertEqual(result.total_errors, 0)
 
-    print("---")
+    def test_conformance_square(self):
+        """
+            Test that we conform to PEP-8 for Square
+        """
+        style = pycodestyle.StyleGuide(quiet=True)
+        result = style.check_files(['models/square.py'])
+        self.assertEqual(result.total_errors, 0)
 
-    s3 = Square(3, 1, 3)
-    print(s3)
-    print(s3.area())
-    s3.display()
+
+if __name__ == '__main__':
+    unittest.main()
