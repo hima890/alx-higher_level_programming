@@ -38,6 +38,6 @@ if __name__ == "__main__":
         print("Not found",)
     else:
         for state in filter_state:
-            print(f"{state.id}: {state.name}")
+            print(f"{state.id}")
     # Close session
     session.close()
