@@ -1,3 +1,5 @@
 .venv/
 .sql/
+.__pycache__/
 *.sql
+6-model_state.py
