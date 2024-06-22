@@ -1,16 +1,23 @@
 #!/usr/bin/python3
-"""" A script that lists all states from the database hbtn_0e_0_usa """
+"""" A script that lists all states with a name starting
+with N (upper N) from the database hbtn_0e_0_usa """
 
 
 import MySQLdb
 import sys
 
+if __name__ == "__main__":
+    username = sys.argv[1]
+    password = sys.argv[2]
+    db_name = sys.argv[3]
 
-def lestStates(dbUsername, dbPassword, dbName):
     # Connect to the MySQL database
-    db = MySQLdb.connect(host="localhost", user=dbUsername,
-                         passwd=dbPassword, db=dbName, port=3306,
-                         charset="utf8")
+    db = MySQLdb.connect(host="localhost",
+                        user=username,
+                        passwd=password,
+                        db=db_name, port=3306,
+                        charset="utf8"
+                        )
     # Create a cursor object to interact with the database
     cursor = db.cursor()
     # Execute the query to get all states sorted by id
@@ -27,14 +34,3 @@ def lestStates(dbUsername, dbPassword, dbName):
     # Close the cursor and the database connection
     cursor.close()
     db.close()
-
-
-#  The code below runs only when the script is executed directly
-if __name__ == "__main__":
-    # Get arguments from command line
-    username = sys.argv[1]
-    password = sys.argv[2]
-    db_name = sys.argv[3]
-
-    # Call the function to list states
-    lestStates(username, password, db_name)
