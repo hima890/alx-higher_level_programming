@@ -27,12 +27,10 @@ if __name__ == "__main__":
     # Create session
     session = Session()
 
-    # Query all State objects sorted by id
-    states = session.query(State).order_by(State.id).all()
+    # Query the first State object
+    first_state = session.query(State).order_by(State.id).first()
 
     # Print states in the desired format
-    for state in states:
-        print(f"{state.id}: {state.name}")
-        break
+    print(f"{first_state.id}: {first_state.name}")
     # Close session
     session.close()
