@@ -22,7 +22,7 @@ if __name__ == "__main__":
     # Create a cursor object to interact with the database
     cursor = db.cursor()
     # Execute the query to get all states sorted by id
-    query = "SELECT id, name FROM states WHERE name LIKE 'N%' ORDER BY id ASC;"
+    query = "SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC;"
     cursor.execute(query)
 
     # Fetch all the rows from the executed query
