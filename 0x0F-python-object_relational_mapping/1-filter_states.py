@@ -9,7 +9,8 @@ import sys
 def lestStates(dbUsername, dbPassword, dbName):
     # Connect to the MySQL database
     db = MySQLdb.connect(host="localhost", user=dbUsername,
-                         passwd=dbPassword, db=dbName, port=3306)
+                         passwd=dbPassword, db=dbName, port=3306,
+                         charset="utf8")
     # Create a cursor object to interact with the database
     cursor = db.cursor()
     # Execute the query to get all states sorted by id
