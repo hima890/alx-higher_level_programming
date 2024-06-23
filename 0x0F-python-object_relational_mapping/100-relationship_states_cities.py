@@ -33,14 +33,14 @@ if __name__ == "__main__":
         # Create new State and City objects
         new_state = State(name='California')
         new_city = City(name='San Francisco')
-        
+
         # Add City to State
         new_state.cities.append(new_city)
-        
+
         # Add State to session and commit
         session.add(new_state)
         session.commit()
-        
+
     except Exception as e:
         print(f"Error: {e}")
     finally:
