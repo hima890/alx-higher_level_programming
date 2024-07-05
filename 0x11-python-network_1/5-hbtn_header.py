@@ -5,14 +5,11 @@ in the response header"""
 
 # Code should not be executed when imported
 if __name__ == "__main__":
-    import urllib.request
+    import requests
     import sys
 
     # Request the URL
     url = sys.argv[1]
-    request = urllib.request.Request(url)
+    request = requests.get(url)
     # Read the response headers
-    with urllib.request.urlopen(request) as response:
-        headers = dict(response.getheaders())
-        # Output the response body
-        print("{}".format(headers.get("X-Request-Id")))
+    print("{}".format(request.headers.get("X-Request-Id")))
