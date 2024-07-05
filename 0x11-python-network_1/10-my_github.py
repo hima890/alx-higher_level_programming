@@ -27,4 +27,4 @@ if __name__ == "__main__":
         except ValueError:
             print("Not a valid JSON")
     else:
-        print("Error code: {}".format(response.status_code))
+        print("None")
