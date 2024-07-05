@@ -6,10 +6,10 @@ of the specified repository.
 Print all commits by: <sha>: <author name> (one by line).
 """
 
-import requests
-import sys
-
 if __name__ == "__main__":
+    import requests
+    import sys
+
     # Get the user info
     repo_name = sys.argv[1]
     owner_name = sys.argv[2]
