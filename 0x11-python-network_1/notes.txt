@@ -1,0 +1,8 @@
+HTTPError:
+
+This error is raised when an HTTP request returns an unsuccessful status code, such as 404 (Not Found) or 500 (Internal Server Error).
+HTTPError is a subclass of URLError, so it includes additional information like the HTTP status code and the reason for the error.
+URLError:
+
+This error is raised for issues related to the network or URL. For example, if the server is unreachable, or there is no internet connection.
+URLError includes a reason attribute that describes the error.
